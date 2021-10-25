@@ -1,0 +1,6 @@
+---
+# handlers file for podman
+
+- name: update apt
+  apt:
+    update_cache: true
