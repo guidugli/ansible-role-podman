@@ -19,11 +19,13 @@
     group: root
     mode: '0644'
   notify: update apt
+  when: ansible_distribution_major_version | int(0) < 21
 
 - name: Add repository key
   apt_key:
     url: 'https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_{{ ansible_distribution_version }}/Release.key'
     state: present
   notify: update apt
+  when: ansible_distribution_major_version | int(0) < 21
 
 # yamllint enable rule:line-length

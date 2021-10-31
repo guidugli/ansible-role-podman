@@ -32,23 +32,12 @@
     group: root
     mode: '0644'
   notify: update apt
+  when: ansible_distribution_major_version | int(0) == 10
 
 - name: Add repository key
   apt_key:
     url: 'https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/Debian_{{ ansible_distribution_major_version }}/Release.key'
     state: present
-  notify: update apt
-
-- name: Add backports repository for Debian 10
-  lineinfile:
-    path: /etc/apt/sources.list.d/backports.list
-    regex: 'deb\shttp://deb.debian.org/debian\sbuster-backports\smain'
-    line: 'deb http://deb.debian.org/debian buster-backports main'
-    state: present
-    create: yes
-    owner: root
-    group: root
-    mode: '0644'
   notify: update apt
   when: ansible_distribution_major_version | int(0) == 10
 
