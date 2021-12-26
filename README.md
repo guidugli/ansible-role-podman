@@ -1,6 +1,8 @@
 Ansible Role: podman
 =========
 
+[![CI](https://github.com/guidugli/ansible-role-podman/workflows/CI/badge.svg?event=push)](https://github.com/guidugli/ansible-role-podman/actions?query=workflow%3ACI)
+
 An Ansible Role that install and configure podman on RHEL/CentOS, Fedora and Debian/Ubuntu.
 
 Requirements
