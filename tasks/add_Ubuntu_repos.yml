@@ -2,14 +2,14 @@
 # yamllint disable rule:line-length
 
 - name: update Ubuntu/Debian systems
-  apt:
+  ansible.builtin.apt:
     name: ['gnupg', 'gpg-agent']
     state: latest
     update_cache: true
     cache_valid_time: 3600
 
 - name: Add software repository
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
     regex: 'deb\shttps://download.opensuse.org/repositories/devel:/kubic:/libcontainers:'
     line: 'deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_{{ ansible_distribution_version }}/ /'
@@ -22,7 +22,7 @@
   when: ansible_distribution_major_version | int(0) < 21
 
 - name: Add repository key
-  apt_key:
+  ansible.builtin.apt_key:
     url: 'https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_{{ ansible_distribution_version }}/Release.key'
     state: present
   notify: update apt

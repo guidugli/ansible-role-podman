@@ -2,14 +2,14 @@
 # yamllint disable rule:line-length
 
 - name: update Ubuntu/Debian systems
-  apt:
+  ansible.builtin.apt:
     name: ['gnupg', 'gpg-agent']
     state: latest
     update_cache: true
     cache_valid_time: 3600
 
 - name: Add backports repository for Debian 10
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: /etc/apt/sources.list.d/backports.list
     regex: 'deb\shttp://deb.debian.org/debian\sbuster-backports\smain'
     line: 'deb http://deb.debian.org/debian buster-backports main'
@@ -22,7 +22,7 @@
   when: ansible_distribution_major_version | int(0) == 10
 
 - name: Add software repository
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
     regex: 'deb\shttps://download.opensuse.org/repositories/devel:/kubic:/libcontainers:'
     line: 'deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/Debian_{{ ansible_distribution_major_version }}/ /'
@@ -35,13 +35,13 @@
   when: ansible_distribution_major_version | int(0) == 10
 
 - name: Add repository key
-  apt_key:
+  ansible.builtin.apt_key:
     url: 'https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/Debian_{{ ansible_distribution_major_version }}/Release.key'
     state: present
   notify: update apt
   when: ansible_distribution_major_version | int(0) == 10
 
 - name: Flush handlers
-  meta: flush_handlers
+  ansible.builtin.meta: flush_handlers
 
 # yamllint enable rule:line-length
