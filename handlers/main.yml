@@ -1,6 +1,6 @@
 ---
 # handlers file for podman
 
-- name: update apt
+- name: Update apt
   ansible.builtin.apt:
     update_cache: true

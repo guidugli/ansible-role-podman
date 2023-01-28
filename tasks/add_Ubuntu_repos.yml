@@ -1,7 +1,7 @@
 ---
 # yamllint disable rule:line-length
 
-- name: update Ubuntu/Debian systems
+- name: Update Ubuntu/Debian systems
   ansible.builtin.apt:
     name: ['gnupg', 'gpg-agent']
     state: latest
