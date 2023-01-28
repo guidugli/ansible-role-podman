@@ -20,7 +20,7 @@
     state: present
     update_cache: yes
 
-- name: set user.max_user_namespaces
+- name: Set user.max_user_namespaces
   ansible.posix.sysctl:
     name: user.max_user_namespaces
     value: "{{ podman_max_user_namespaces | string }}"
