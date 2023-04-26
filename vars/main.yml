@@ -4,6 +4,7 @@
 _podman_packages:
   default: ['podman']
   RedHat: ['podman', 'buildah', 'skopeo', 'podman-docker', 'slirp4netns']
+  Rocky: ['podman', 'buildah', 'skopeo', 'podman-docker', 'slirp4netns']
   Fedora: ['podman', 'buildah', 'skopeo', 'podman-docker', 'slirp4netns']
   CentOS: ['podman', 'buildah', 'skopeo', 'podman-docker', 'slirp4netns']
   Ubuntu: ['podman', 'buildah', 'skopeo', 'software-properties-common', 'uidmap', 'slirp4netns']
