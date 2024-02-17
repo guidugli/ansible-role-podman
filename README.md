@@ -1,6 +1,8 @@
 Ansible Role: podman
 =========
 
+Archiving this role as podman now ships with most major distributions, no role needed.
+
 [![CI](https://github.com/guidugli/ansible-role-podman/workflows/CI/badge.svg?event=push)](https://github.com/guidugli/ansible-role-podman/actions?query=workflow%3ACI)
 
 An Ansible Role that install and configure podman on RHEL/CentOS, Fedora and Debian/Ubuntu. The focus is the installation on distributions that ships it in its repository. For a more comprehensive role, use [this one](https://github.com/alvistack/ansible-role-podman)
